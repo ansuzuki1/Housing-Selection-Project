@@ -52,11 +52,9 @@ jobs:
 
 
     # RUN TESTS
-      - name: Test with pytest
-        env:
-          GOOGLE_SHEETS_TEST_DOCUMENT_ID: ${{ secrets.GOOGLE_SHEETS_TEST_DOCUMENT_ID }}
-          GOOGLE_CREDENTIALS_FILEPATH: ${{ steps.auth.outputs.credentials_file_path }}
-        run: |
-          CI=true pytest
-
-        
+    - name: Test with pytest
+      env:
+        GOOGLE_SHEETS_TEST_DOCUMENT_ID: ${{ secrets.GOOGLE_SHEETS_TEST_DOCUMENT_ID }}
+        GOOGLE_CREDENTIALS_FILEPATH: ${{ steps.auth.outputs.credentials_file_path }}
+      run: |
+        CI=true pytest
