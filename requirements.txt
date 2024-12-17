@@ -20,7 +20,6 @@ gunicorn
 
 # testing:
 pytest
-unittest.mock
 
 #install sendgrid
 sendgrid==6.9.1
