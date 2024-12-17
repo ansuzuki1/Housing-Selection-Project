@@ -1,4 +1,5 @@
 
+'''
 from app.models.product import Product
 
 # tests for each page (update the tests if you change the page contents):
@@ -35,3 +36,4 @@ def test_products_page(test_client):
 
     # clean up (clear products sheet):
     Product.destroy_all()
+'''

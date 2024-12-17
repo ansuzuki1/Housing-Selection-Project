@@ -50,34 +50,3 @@ def rooms_list():
 
 
 
-'''
-from flask import Blueprint, render_template, request, flash, redirect #, current_app #, session
-from app.rooms import fetch_and_filter_rooms
-
-rooms_routes = Blueprint("rooms_routes", __name__)
-
-
-@rooms_routes.route("/rooms_form")
-def rooms_form():
-    return render_template("rooms_form.html")
-
-@rooms_routes.route("/rooms_list", methods=["GET","POST"])
-def rooms_list():
-    if request.method == "POST":
-        # for data sent via POST request, form inputs are in request.form:
-        request_data = dict(request.form)
-        print("FORM DATA:", request_data)
-
-
-    else:
-        # for data sent via GET request, url params are in request.args
-        request_data = dict(request.args)
-        print("URL PARAMS:", request_data)
-        
-    
-    filter_value = request_data['filter']
-    listofrooms = fetch_and_filter_rooms(filter_value)
-
-    return render_template("rooms.html", listofrooms = listofrooms)
-
-'''
