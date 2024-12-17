@@ -36,13 +36,13 @@ cd ~/Desktop/flask-sheets-template-2024
 Create new Anaconda virtual environment (first time only):
 
 ```sh
-conda create -n house-selection-2024 python=3.10
+conda create -n house-selection python=3.10
 ```
 
 Activate the virtual environment (first time, or whenever you return to the project):
 
 ```sh
-conda activate house-selection-2024
+conda activate house-selection
 ```
 
 > NOTE: it is important to activate the virual environment before running any of the commands below.
@@ -85,42 +85,20 @@ GOOGLE_CLIENT_SECRET="____________"
 # GOOGLE SHEETS DATABASE (see Google Sheets Database Setup Guide)
 #
 GOOGLE_SHEETS_DOCUMENT_ID="____________"
-#GOOGLE_SHEETS_TEST_DOCUMENT_ID="____________"
 
-#
-# GOOGLE ANALYTICS (see Google Analytics Setup Guide)
-#
-#GA_TRACKER_ID="____________"
-```
-
+#SENDGRID KEYS 
+SENDGRID_API_KEY = "_______"
+SENDGRID_SENDER_ADDRESS = "________________"
 
 
 
 ## Usage
 
-### Google Sheets Database
-
-After you have set up the Google Sheets database, you should be able to use the spreadsheet service to interface with it at a low level (for example to list all the sheets in the document):
+### Run room filtering on terminal 
 
 ```sh
-python -m app.spreadsheet_service
+python -m app.rooms
 ```
-
-Assuming the "products" sheet has been setup properly, you can use the model class to interface with it at a higher level (for example to populate the sheet with example records):
-
-```sh
-python -m app.models.product
-```
-
-This should populate the sheet with the following records:
-
-| id  | name         | description                                       | price  | url                                   | created_at |
-| --- | ------------ | ------------------------------------------------- | ------ | ------------------------------------- | ---------- |
-| 1   | Strawberries | Juicy organic strawberries.                       | 4.99   | https://picsum.photos/id/1080/360/200 | ...        |
-| 2   | Cup of Tea   | An individually-prepared tea or coffee of choice. | 3.49   | https://picsum.photos/id/225/360/200  | ...        |
-| 3   | Textbook     | It has all the answers.                           | 129.99 | https://picsum.photos/id/24/360/200   | ...        |
-
-> NOTE: see the contents of the ["app/models/product.py"](/app/models/product.py) file for more details, and feel free to customize the `SEEDS` as desired.
 
 ### Web Application
 
@@ -136,14 +114,6 @@ FLASK_APP=web_app flask run
 
 ## Testing
 
-We will use a separate Google Sheet "test document" during testing. This keeps development data seprate from test data, and allows for experimentation when testing.
-
-To setup the test document, follow a modified version of the Google Sheets Database Setup Guide:
-  1. Create a copy of the Google Sheet "development document" you setup earlier (including the "products" and "orders" sheet with the proper column identifiers).
-  2. Share this document with your service account's email address, giving it "Editor" priviges.
-  3. Note the document's identifier from the URL bar, and set it as a separate environment variable called `GOOGLE_SHEETS_TEST_DOCUMENT_ID`, by adding this environment variable to the ".env" file.
-
-Running tests, as configured by the "conftest.py" file and defined in the "test" directory:
 
 ```sh
 pytest
