@@ -1,12 +1,98 @@
 {% extends "bootstrap_5_layout.html" %}
-{% set active_page = "home" %}
+{% set active_page = "login" %}
 
 {% block content %}
+<head>
 
-    <h1>Home</h1>
+<style>
+    :root {
+        --font-family-base: 'Sans Serif', sans-serif;
+    }
 
-    <p class="lead">This is the home page.</p>
+    .header-container {
+        background-image: url('https://www.georgetown.edu/wp-content/uploads/2022/08/20180720_SolarPanels_RowHouses-6120-scaled.jpg');
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: min(80vh, 2000px);
+    }
 
-    <p>Here is some more info!</p>
+    .header-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Adjusts the position to be truly centered */
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */        
+        padding: 40px; 
+        border-radius: 10px;
+        font-family: var(--font-family-base); /* Use the CSS variable */
+        text-align: center;
+    }
+
+    @media(min-width: 500px) {
+        .header-text > h1 {
+            font-size: 2.3rem;
+            font-weight: bold;
+            color: white
+        }
+
+        .header-text > p {
+            font-size: 1.3rem;
+            color: white
+        }
+    }
+
+    @media(max-width: 500px) {
+        .header-text > h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white
+        }
+
+        .header-text > p {
+            font-size: 1rem;
+            color: white
+        }
+    }
+
+
+    .btn-navy {
+        background-color: #041E42;
+        border: none;
+        color: white;
+    }
+    .btn-navy:hover {
+        color: white;
+    }
+</style>
+
+</head>
+<body>
+
+    <div class="header-container" style="background-image: url('https://www.georgetown.edu/wp-content/uploads/2022/08/20180720_SolarPanels_RowHouses-6120-scaled.jpg');">
+        <div class="header-text">
+            <h1>FIND YOUR FUTURE ROOM!</h1>
+            {% if not session["current_user"] %}
+                <p>Log in with your Georgetown account to bookmark potential rooms.</p>
+            {% endif %}
+            <br>
+            {% if session["current_user"] %}
+                <button type="button" class="btn btn-lg btn-navy" onclick="window.location.href = '______'">Begin Bookmarking</button>
+            {% else %}
+                <button type="button" class="btn btn-lg btn-navy" onclick="window.location.href = '/login'">Login with Georgetown NetID</button>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
 
 {% endblock %}
+
+
+
+
