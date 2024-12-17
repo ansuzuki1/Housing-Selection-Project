@@ -14,7 +14,6 @@ from web_app.routes.home_routes import home_routes
 from web_app.routes.auth_routes import auth_routes
 from web_app.routes.user_routes import user_routes
 from web_app.routes.product_routes import product_routes
-from web_app.routes.order_routes import order_routes
 
 load_dotenv()
 
@@ -69,7 +68,6 @@ def create_app():
     app.register_blueprint(auth_routes)
     app.register_blueprint(user_routes)
     app.register_blueprint(product_routes)
-    app.register_blueprint(order_routes)
 
     return app
 

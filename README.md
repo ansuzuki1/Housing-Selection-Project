@@ -36,13 +36,13 @@ cd ~/Desktop/flask-sheets-template-2024
 Create new Anaconda virtual environment (first time only):
 
 ```sh
-conda create -n flask-sheets-2024 python=3.10
+conda create -n housing-selection-2024 python=3.10
 ```
 
 Activate the virtual environment (first time, or whenever you return to the project):
 
 ```sh
-conda activate flask-sheets-2024
+conda activate housing-selection-2024
 ```
 
 > NOTE: it is important to activate the virual environment before running any of the commands below.
