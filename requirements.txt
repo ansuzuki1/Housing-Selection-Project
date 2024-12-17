@@ -20,3 +20,7 @@ gunicorn
 
 # testing:
 pytest
+
+#install sendgrid
+sendgrid==6.9.1
+
