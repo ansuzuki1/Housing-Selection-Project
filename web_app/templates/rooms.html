@@ -1,29 +1,65 @@
-
 {% extends "bootstrap_5_layout.html" %}
 {% set active_page = "rooms_form" %}
 {% block content %}
 
-    {% for room in listofrooms %}
-        <ul>
-            <li>{{room}}</li>
-        </ul>
-    {% endfor %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 
-    <form method="POST" action="{{ url_for('rooms_routes.rooms_list') }}">
-        <input type="hidden" name="filter" value="{{ filter }}">
+            <!-- Room List -->
+            <h2 class="text-center mb-4">Available Rooms</h2>
+            <ul class="list-group mb-4 shadow">
+                {% for room in listofrooms %}
+                    <li class="list-group-item">{{ room }}</li>
+                {% endfor %}
+            </ul>
 
-    
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" required>
-    
-        <label for="send_email">Send email with results:</label>
-        <input type="checkbox" id="send_email" name="send_email" value="True">
-    
-        <button type="submit" >Submit</button>
-    </form>
-    
+            <!-- Form Section -->
+            <div class="card shadow-sm p-4 bg-light">
+                <form method="POST" action="{{ url_for('rooms_routes.rooms_list') }}">
+                    <label for="filter">Please Select a Room Filter:</label>
+                    <select name="filter" id="filter" class="form-select" required>
+                        <option value="available">Available</option>
+                        <option value="1">1 Bed</option>
+                        <option value="2">2 Beds</option>
+                        <option value="car barn">Car Barn View</option>
+                        <option value="courtyard">Courtyard View</option>
+                        <option value="lxr">LXR View</option>
+                        <option value="n street">N Street View</option>
+                    </select>
+                </div>
+
+                    <!-- Email Input -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold">Your Email:</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-control" 
+                            placeholder="Enter your email" 
+                            required>
+                    </div>
+
+                    <!-- Checkbox Input -->
+                    <div class="form-check mb-3">
+                        <input 
+                            type="checkbox" 
+                            id="send_email" 
+                            name="send_email" 
+                            value="True" 
+                            class="form-check-input">
+                        <label for="send_email" class="form-check-label">
+                            Send email with results
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
-
-
-

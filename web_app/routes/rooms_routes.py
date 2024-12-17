@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 from app.rooms import fetch_and_filter_rooms, generate_email_content
 from app.email_service import send_email_with_sendgrid
 

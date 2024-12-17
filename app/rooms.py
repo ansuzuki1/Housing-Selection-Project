@@ -17,6 +17,7 @@ def fetch_rooms(document_id="10-qQmXxIiJUHPDqQ4Te-btk_yImpR10Pp5x57f4ZaxI", shee
     data = sheet.get_all_records()
 
 
+
     rooms = {}
     for n in data:
         room_id = n['room_id']

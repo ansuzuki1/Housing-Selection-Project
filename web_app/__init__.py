@@ -28,6 +28,7 @@ GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 GA_TRACKER_ID = os.getenv("GA_TRACKER_ID", default="G-OOPS")
 
 
+
 def create_app():
 
     app = Flask(__name__)
