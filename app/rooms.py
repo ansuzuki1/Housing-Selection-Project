@@ -80,8 +80,6 @@ for room in matching_rooms:
     )
 '''
 
-
-# Generate email content dynamically for the filter results
 def generate_email_content(user_filter, matching_rooms):
     emailContent = f"""
     <h1>Your Room List</h1>
@@ -96,9 +94,8 @@ def generate_email_content(user_filter, matching_rooms):
         </tr>
     """
 
-    # Loop through filtered rooms and add them as rows in the table
     for room in matching_rooms:
-        room_id, details = list(room.items())[0]  # Unpack room ID and details
+        room_id, details = list(room.items())[0]  
         emailContent += f"""
         <tr>
             <td>{room_id}</td>

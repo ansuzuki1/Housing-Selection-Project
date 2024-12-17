@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv() # looks in the ".env" file for env vars
+load_dotenv() 
 
 SENDGRID_SENDER_ADDRESS = os.getenv("SENDGRID_SENDER_ADDRESS")
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
