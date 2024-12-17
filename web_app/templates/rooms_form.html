@@ -1,0 +1,27 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "rooms_form" %}
+
+{% block content %}
+
+    <h2>Rooms Form</h2>
+
+    <p>Select a filter to view available rooms...</p>
+
+    <form action="/rooms_list" method="POST">
+
+        <label>Room Filter:</label>
+        <select name="filter">
+            <option value="available">Available</option>
+            <option value="1">1 Bed</option>
+            <option value="2">2 Beds</option>
+            <option value="car barn">Car Barn View</option>
+            <option value="courtyard">Courtyard View</option>
+            <option value="lxr">LXR View</option>
+            <option value="n street">N Street View</option>
+        </select>
+        <br>
+
+        <button class="btn btn-success">Submit</button>
+    </form>
+
+{% endblock %}

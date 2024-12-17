@@ -65,7 +65,7 @@ def fetch_and_filter_rooms(user_filter):
 
     return matching_rooms
 
-
+'''
 # asking user to input filter keyword:
 user_filter = input("Please enter your desired filter: ").lower()
 matching_rooms = fetch_and_filter_rooms(user_filter)
@@ -78,7 +78,7 @@ for room in matching_rooms:
         f"Room ID: {room_id} | Beds: {details.get('beds', 'N/A')} | "
         f"Status: {details.get('status', 'N/A')} | View: {details.get('view', 'N/A')}"
     )
-
+'''
 
 
 # Generate email content dynamically for the filter results
@@ -116,7 +116,7 @@ def generate_email_content(user_filter, matching_rooms):
 
     return emailContent
 
-emailContent = generate_email_content(user_filter, matching_rooms)
+'''emailContent = generate_email_content(user_filter, matching_rooms)
 
 # asking user if they want a list emailed
 # --------
@@ -142,3 +142,4 @@ if sendEmailBool == True:
     send_email_with_sendgrid(recipient_address=customerEmail,
                              subject="Here is your requested room list!",
                              html_content=emailContent)
+'''

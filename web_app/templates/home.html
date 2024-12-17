@@ -81,7 +81,7 @@
             {% endif %}
             <br>
             {% if session["current_user"] %}
-                <button type="button" class="btn btn-lg btn-navy" onclick="window.location.href = '______'">Begin Bookmarking</button>
+                <a href="/rooms_form" class="btn btn-lg btn-navy" role="button">Begin Searching</a>
             {% else %}
                 <button type="button" class="btn btn-lg btn-navy" onclick="window.location.href = '/login'">Login with Georgetown NetID</button>
             {% endif %}

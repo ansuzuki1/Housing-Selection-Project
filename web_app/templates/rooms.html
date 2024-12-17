@@ -1,0 +1,29 @@
+
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "rooms_form" %}
+{% block content %}
+
+    {% for room in listofrooms %}
+        <ul>
+            <li>{{room}}</li>
+        </ul>
+    {% endfor %}
+
+    <form method="POST" action="{{ url_for('rooms_routes.rooms_list') }}">
+        <input type="hidden" name="filter" value="{{ filter }}">
+
+    
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+    
+        <label for="send_email">Send email with results:</label>
+        <input type="checkbox" id="send_email" name="send_email" value="True">
+    
+        <button type="submit" >Submit</button>
+    </form>
+    
+
+{% endblock %}
+
+
+
